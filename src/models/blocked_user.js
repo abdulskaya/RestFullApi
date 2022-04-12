@@ -1,6 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require('../config/db');
 
-const BlockedUser = sequelize.define('BlockedUser', {
+class BlockedUser extends Model {}
+BlockedUser.init({
   user_id: {
     type: Sequelize.INTEGER,
     references: {

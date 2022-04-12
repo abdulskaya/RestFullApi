@@ -1,6 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require('../config/db');
 
-const Message = sequelize.define('Message', {
+class Message extends Model {}
+Message.init({
   conversation_id: {
     type: Sequelize.INTEGER,
     references: {
@@ -30,3 +32,4 @@ const Message = sequelize.define('Message', {
 });
 
 module.exports = Message
+

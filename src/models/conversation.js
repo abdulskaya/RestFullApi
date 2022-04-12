@@ -1,6 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require('../config/db');
 
-const Conversation = sequelize.define('Conversation', {
+class Conversation extends Model {}
+Conversation.init({
   is_deleted: {
     defaultValue: 0,
     type: Sequelize.BOOLEAN,
@@ -12,3 +14,4 @@ const Conversation = sequelize.define('Conversation', {
 });
 
 module.exports = Conversation
+

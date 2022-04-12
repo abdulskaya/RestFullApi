@@ -1,6 +1,8 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
+const sequelize = require('../config/db');
 
-const User = sequelize.define('User', {
+class User extends Model {}
+User.init({
   email: {
     allowNull: false,
     type: Sequelize.STRING
