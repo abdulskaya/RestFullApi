@@ -1,0 +1,24 @@
+POST http://localhost:3000/register
+content-type: application/json
+
+{
+    "email": "abdulskaya@gmail.com",
+    "username": "abdulskaya",
+    "name": "Abdulsamet Kaya",
+    "password": "123456789",
+    "password_verification": "123456789"
+}
+
+###
+
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "email": "abdulskaya@gmail.com",
+    "password": "123456789"
+}
+
+###
+
+POST http://localhost:3000/logout

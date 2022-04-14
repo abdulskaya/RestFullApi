@@ -16,7 +16,7 @@ User.init({
     type: Sequelize.STRING
   },
   role: {
-    allowNull: false,
+    defaultValue: "user",
     type: Sequelize.STRING
   },
   is_active: {
