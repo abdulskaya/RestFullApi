@@ -1,4 +1,5 @@
-POST http://localhost:3000/register
+// user 1 register
+POST http://localhost:3000/api/register
 content-type: application/json
 
 {
@@ -11,14 +12,94 @@ content-type: application/json
 
 ###
 
-POST http://localhost:3000/login
+// user 2 register
+POST http://localhost:3000/api/register
 content-type: application/json
 
 {
-    "email": "abdulskaya@gmail.com",
+    "email": "user1@gmail.com",
+    "username": "user1",
+    "name": "User 1",
+    "password": "123456789",
+    "password_verification": "123456789"
+}
+
+###
+
+// user 3 register
+POST http://localhost:3000/api/register
+content-type: application/json
+
+{
+    "email": "user2@gmail.com",
+    "username": "user2",
+    "name": "User 2",
+    "password": "123456789",
+    "password_verification": "123456789"
+}
+
+###
+
+// login
+POST http://localhost:3000/api/login
+content-type: application/json
+
+{
+    "email": "user1@gmail.com",
     "password": "123456789"
 }
 
 ###
 
-POST http://localhost:3000/logout
+// logout
+POST http://localhost:3000/api/logout
+
+###
+
+// check is auth
+POST http://localhost:3000/api/check-auth
+
+###
+
+// messages(chats) betweeen all users
+POST http://localhost:3000/api/messages
+content-type: application/json
+
+###
+
+// messages betweeen user
+POST http://localhost:3000/api/messages/abdulskaya
+content-type: application/json
+
+###
+
+// messages betweeen user
+POST http://localhost:3000/api/message/abdulskaya
+content-type: application/json
+
+{
+    "text": "Merhaba"
+}
+
+###
+
+// block to user
+POST http://localhost:3000/api/block/user1
+
+###
+
+// check is blockod to user
+NOT: This function don't check to other user block to this user!
+POST http://localhost:3000/api/is-blocked/user1
+
+###
+
+// unblock to user
+POST http://localhost:3000/api/unblock/abdulskaya
+
+###
+
+//  blocked lists
+POST http://localhost:3000/api/block-list
+
+###

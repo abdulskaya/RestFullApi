@@ -20,5 +20,11 @@ router.post('/messages', messages); // see all messages (chats) from other users
 router.post('/messages/:username', messages_with); // see all messages between a user
 router.post('/message/:username', send_message); // send message to user
 
+// block routes
+router.post('/block/:username', block_user); // see all messages (chats) from other users
+router.post('/unblock/:username', unblock_user); // see all messages between a user
+router.post('/is-blocked/:username', is_blocked); // send message to user
+router.post('/block-list', blocked_list); // send message to user
+
 
 module.exports = router;

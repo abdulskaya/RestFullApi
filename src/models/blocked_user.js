@@ -16,15 +16,12 @@ BlockedUser.init({
       model: 'users',
       key: 'id',
     }
-  },
-  is_deleted: {
-    defaultValue: 0,
-    type: Sequelize.BOOLEAN,
   }
 }, {
   // Other model options 
   sequelize, // pass the connection instance
-  modelName: 'BlockedUser' // choose the model name
+  modelName: 'BlockedUser', // choose the model name
+  tableName: 'blocked_users'
 });
 
 module.exports = BlockedUser
