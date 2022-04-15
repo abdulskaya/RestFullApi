@@ -9,8 +9,7 @@ const flash = require('connect-flash');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const passport = require('passport');
 const router = require("./src/routers/router");
-
-
+const assosications = require('./src/models/assosications');
 const seqStore = new SequelizeStore({
     db: db,
 });
@@ -44,7 +43,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //routers
-app.use(router)
+app.use('/api',router);
 
 app.listen(3000, () => {
     console.log('System is running on 3000');
