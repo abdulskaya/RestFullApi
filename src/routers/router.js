@@ -7,13 +7,14 @@ const {body, checkSchema, validationResult} = require('express-validator');
 const {messages, send_message, messages_with, delete_message} = require('../controllers/messageController');
 const {block_user, is_blocked, unblock_user, blocked_list} = require('../controllers/blockController');
 const checkOutMiddleware = require('../middlewares/checkAuthMiddleware');
+const checkUnOutMiddleware = require('../middlewares/checkUnAuthMiddleware');
 
 
 router.get('/', home);
 
 // auth routes
-router.post('/register', checkSchema(register_schema), register);
-router.post('/login', login);
+router.post('/register',[checkUnOutMiddleware, checkSchema(register_schema)], register);
+router.post('/login',checkUnOutMiddleware, login);
 router.post('/logout', checkOutMiddleware, logout);
 router.post('/check-auth', check_auth);
 
