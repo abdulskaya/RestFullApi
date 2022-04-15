@@ -89,8 +89,8 @@ POST http://localhost:3000/api/block/user1
 ###
 
 // check is blockod to user
-NOT: This function don't check to other user block to this user!
-POST http://localhost:3000/api/is-blocked/user1
+//NOT: This function don't check to other user block to this user!
+POST http://localhost:3000/api/is-blocked/asdsd
 
 ###
 
@@ -101,5 +101,10 @@ POST http://localhost:3000/api/unblock/abdulskaya
 
 //  blocked lists
 POST http://localhost:3000/api/block-list
+
+###
+
+// delete message
+POST http://localhost:3000/api/messages/delete/5
 
 ###
