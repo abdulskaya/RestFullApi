@@ -19,16 +19,16 @@ router.post('/logout', checkOutMiddleware, logout);
 router.post('/check-auth', check_auth);
 
 // message routes
-router.post('/messages', checkOutMiddleware, messages); // see all messages (chats) from other users
-router.post('/messages/:username', checkOutMiddleware, messages_with); // see all messages between a user
-router.post('/messages/delete/:message_id', checkOutMiddleware, delete_message); // send message to user
+router.get('/messages', checkOutMiddleware, messages); // see all messages (chats) from other users
+router.get('/messages/:username', checkOutMiddleware, messages_with); // see all messages between a user
+router.get('/messages/delete/:message_id', checkOutMiddleware, delete_message); // send message to user
 router.post('/message/:username', checkOutMiddleware, send_message); // send message to user
 
 // block routes
-router.post('/block/:username', checkOutMiddleware, block_user); // block a user
-router.post('/unblock/:username', checkOutMiddleware, unblock_user); // unblock a user
-router.post('/is-blocked/:username', checkOutMiddleware, is_blocked); // check user is blocked
-router.post('/block-list', checkOutMiddleware, blocked_list); // get all blocked user (only blocked from you)
+router.get('/block/:username', checkOutMiddleware, block_user); // block a user
+router.get('/unblock/:username', checkOutMiddleware, unblock_user); // unblock a user
+router.get('/is-blocked/:username', checkOutMiddleware, is_blocked); // check user is blocked
+router.get('/block-list', checkOutMiddleware, blocked_list); // get all blocked user (only blocked from you)
 
 
 module.exports = router;
