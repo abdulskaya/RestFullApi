@@ -28,8 +28,8 @@ const logout = (req, res, next) => {
     req.logout();
     req.session.destroy((erroy) => {
         res.clearCookie('connect.sid');
-        res.redirect('/login');
-    })
+        res.json("Çıkış yapıldı.")
+    });
 }
 
 const check_auth = (req, res, next) => {
