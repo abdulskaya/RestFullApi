@@ -82,17 +82,18 @@ const is_blocked = async (req, res) => {
         
         if (is_blocked_before){
             res.json({
-                response: false,
-                message: "Kullanıcı bloklanmadı",
+                response: true,
+                message: "Kullanıcı engel durumunda",
                 target: req.params.username
             });
             
         } else{
             res.json({
-                response: true,
-                message: "Kullanıcı blok durumda",
+                response: false,
+                message: "Kullanıcı engel durumunda değil",
                 target: req.params.username
             });
+            
         }
     }
     

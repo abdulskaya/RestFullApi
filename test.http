@@ -84,13 +84,13 @@ content-type: application/json
 ###
 
 // block to user
-POST http://localhost:3000/api/block/user1
+POST http://localhost:3000/api/block/abdulskaya
 
 ###
 
 // check is blockod to user
 //NOT: This function don't check to other user block to this user!
-POST http://localhost:3000/api/is-blocked/asdsd
+POST http://localhost:3000/api/is-blocked/abdulskaya
 
 ###
 
