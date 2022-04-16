@@ -67,7 +67,6 @@ const messages_with = async (req, res) => {
     const [results, metadata] = await connection.query(`SELECT messages.conversation_id FROM messages INNER JOIN participants ON messages.conversation_id = participants.conversation_id WHERE (messages.user_id = ${req.user.id} AND participants.user_id = ${target_user.id}) 
     or (messages.user_id = ${target_user.id} AND participants.user_id = ${req.user.id});`);
     
-    console.log(results[0].conversation_id);
     if (results.length > 0){
         conversation = await Conversation.findAll({
             where: {
@@ -89,8 +88,7 @@ const messages_with = async (req, res) => {
         // console.log(conversation);
         // res.json(conversation.Messages)
         
-        
-        res.json(conversation)
+        res.json(conversation);
         
     } else{
         res.json("Kullanıcı ile aranızda bir konuşma yok.")
@@ -187,17 +185,49 @@ const send_message = async (req, res) => {
 }
 
 const delete_message = async (req, res) => {
+    
     const message = await Message.findOne({
         where: {
-            id: req.params.message_id
+            id : req.params.message_id
         }
     });
     
-    if (message == null)  res.status(404).send("Mesaj bulunamadı");
-    else {
-        await message.destroy();
+    if (message) {
+        const conversation_id = message.dataValues.conversation_id;
+        
+        await Message.destroy({
+            where: {
+                id : req.params.message_id
+            }
+        });
+        
+        const checkMessages = await Message.findOne({
+            where: {
+                conversation_id : conversation_id
+            }
+        });
+        
+        if (!checkMessages) {
+            
+            Participant.destroy({
+                where : {
+                    conversation_id : conversation_id
+                }
+            });
+            
+            Conversation.destroy({
+                where : {
+                    id : conversation_id
+                }
+            });
+        }    
+        
         res.status(200).send();
+        
+    } else {
+        res.status(404).send("Mesaj bulunamadı");
     }
+    
 }
 
 module.exports = {
