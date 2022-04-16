@@ -19,7 +19,7 @@
 | `/api/messages/delete/:message_id` | delete message |
 | `/api/message/:username` | send message to user |
 | `/api/block/:username` |  block a user |
-| `/api/api/unblock/:username` |  unblock a user |
+| `/api/unblock/:username` |  unblock a user |
 | `/api/is-blocked/:username` |  check user is blocked |
 | `/api/block-list` | get all blocked user (only blocked from you) |
 
