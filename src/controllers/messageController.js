@@ -129,7 +129,7 @@ const send_message = async (req, res) => {
         });
         
         if (is_blocked){
-            res.status(403).send("Bu bu kullanıcıyı engellediniz veya kullanıcı tarafından engellendiniz.");
+            res.status(403).send("Bu kullanıcıyı engellediniz veya bu kullanıcı tarafından engellendiniz.");
         } else{
             
             const [results, metadata] = await connection.query(`SELECT messages.conversation_id FROM messages INNER JOIN participants ON messages.conversation_id = participants.conversation_id WHERE (messages.user_id = ${req.user.id} AND participants.user_id = ${target_user.id}) 
