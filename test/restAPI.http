@@ -62,13 +62,13 @@ POST http://localhost:3000/api/check-auth
 ###
 
 // messages(chats) betweeen all users
-POST http://localhost:3000/api/messages
+GET http://localhost:3000/api/messages
 content-type: application/json
 
 ###
 
 // messages betweeen user
-POST http://localhost:3000/api/messages/abdulskaya
+GET http://localhost:3000/api/messages/abdulskaya
 content-type: application/json
 
 ###
@@ -84,27 +84,27 @@ content-type: application/json
 ###
 
 // block to user
-POST http://localhost:3000/api/block/abdulskaya
+GET http://localhost:3000/api/block/abdulskaya
 
 ###
 
 // check is blockod to user
 //NOT: This function don't check to other user block to this user!
-POST http://localhost:3000/api/is-blocked/abdulskaya
+GET http://localhost:3000/api/is-blocked/abdulskaya
 
 ###
 
 // unblock to user
-POST http://localhost:3000/api/unblock/abdulskaya
+GET http://localhost:3000/api/unblock/abdulskaya
 
 ###
 
 //  blocked lists
-POST http://localhost:3000/api/block-list
+GET http://localhost:3000/api/block-list
 
 ###
 
 // delete message
-POST http://localhost:3000/api/messages/delete/5
+GET http://localhost:3000/api/messages/delete/16
 
 ###
