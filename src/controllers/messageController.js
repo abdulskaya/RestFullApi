@@ -33,10 +33,10 @@ const messages = async (req, res) => {
             is_deleted: 0
         },
         include: {
-            model: User,
-            include: {
-                model: Message,
-            }
+            model: User
+        },
+        include: {
+            model: Message
         },
         order: [
             ['updatedAt', 'DESC'],
